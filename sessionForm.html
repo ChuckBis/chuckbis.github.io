@@ -2,8 +2,85 @@
 <html>
     <head>
         <title> BrightSide Survey </title>
+        <style>
+            body { 
+                background: url(sunset.jpg) no-repeat center center fixed; 
+                background-size: cover;
+                margin: 0; 
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 2vw;
+                color: black;
+            }
+            footer {
+                background-color: #333;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+
+            footer h3 {
+                font-size: 2vw;
+                margin-bottom: 10px;
+            }
+
+            footer a {
+                color: peachpuff;
+                text-decoration: none;
+                font-size: 1.5vw;
+            }
+
+            footer a:hover {
+                text-decoration: underline;
+            }
+
+            footer p {
+                font-size: 1.5vw;
+                margin: 5px 0;
+            }
+        </style>
     </head>
     <body>
-        Fuck you 
+        <form style = "margin-top: 50px; font-weight: 1000; font-size: 20px;" method="get" action = "#">
+            Thank you for your interest in BrightSide Learning! Please fill out this survey for the best tutoring match! <br> 
+            <div class = "form-element"> <label> Enter your email for contacting purposes: 
+                <input type = "text" name = "email"> 
+            <br>
+                <div class= "form-element"> <label> What services are you looking for?  
+                <select name = "service"> 
+                    <option> Select an option: </option>
+                    <option> Elementary class tutoring </option>
+                    <option> High school class tutoring </option>
+                    <option> ACT/SAT Tutoring </option>
+                    <option> Other </option>
+                </select>
+            <br>
+            <div class = "form-element"> <label> If selected Other, enter service: 
+                <input type = "text" name = "other"> 
+            <br>
+            <div class="form-element"> <label> Tell us a little about what you are looking for! <label>
+                <input type="text" name = "explanation"> 
+            <br>
+            <div class= "form-element"> <label> Do you have a preference for a tutor? See our "Meet the Tutors" page for more information on each! <br>
+                <input type="radio" name= "tutor" value = "sarah"> Sarah: <img src="sarah.png">
+                <br>
+                <input type="radio", name= "tutor" value = "mike"> Mike:  <img src="mike.png">
+                <br>
+                <input type="radio", name= "tutor" value = "paul"> Paul: <img src="paul.png">
+                <br>
+                <input type="radio", name= "tutor" value = "rebecca"> Rebecca:  <img src="rebecca.png">
+                <br>
+            <div class="form-element"> <label> Any extra information or comments we should know about? <label>
+                <input type="text" name = "explanation"> 
+            <br>
+            <input type="submit" value="Submit!">
+            <br>
+        </form>
+        <footer>
+            <h3>Contact Us!</h3>
+            <p><a href="tel:555-555-5555">Call: 555-555-5555</a></p>
+            <p><a href="homepage.html">Email: learning@brightside.com</a></p>
+            <p>Office: 200 College Ave, Medford, MA</p>
+            <p><a href="homepage.html">Home</a> | <a href="meetTutors.html"> Meet the Tutors</a></p>
+        </footer>
     </body>
 </html>
