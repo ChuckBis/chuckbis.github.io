@@ -39,7 +39,9 @@ nav ul li a {
 nav ul li a:hover {
     background-color: peachpuff;
 }
-
+h1 {
+    text-align: center;
+}
 h2 {
     color: #333;
     text-align: center;
