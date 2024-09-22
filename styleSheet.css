@@ -40,9 +40,10 @@ nav ul li a:hover {
     background-color: peachpuff;
 }
 
-h3 {
+h2 {
     color: #333;
     text-align: center;
+    font-size: 3.5vw;
 }
 
 p {
@@ -58,10 +59,6 @@ p {
     }
      body {
         font-size: 4vw; 
-    }
-
-    h3 {
-        font-size: 6vw; 
     }
 
     p {
