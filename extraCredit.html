@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> Extra Credit Worksheet </title>
+    <script>
+        function problem1() {
+            document.write("Problem 1: ");
+            for (let i = 40; i >= 10; i--) {
+                document.writeln(i);
+                i--; 
+            }
+        }
+        function problem2() {
+            let sum = 0;
+            while (sum <= 20) {
+                var number = prompt("Problem 2: Enter a number: ");
+                var add = parseInt(number);
+                sum = sum + add; 
+            }
+            document.write("Problem 2: ");
+            document.writeln(sum);
+            document.writeln(" has exceeded 20.");
+        }
+        function problem3() { 
+            nums = [];
+            sum = 0;
+            while (sum <= 20) {
+                var number = prompt("Problem 3: Enter a number: ");
+                var add = parseInt(number);
+                nums.push(add); 
+                sum = sum + add; 
+            }
+            document.write("Problem 3: ");
+            for(let i = 0; i < nums.length; i++) {
+                document.writeln(nums[i]);
+            }
+            document.writeln(" -- ");
+            document.writeln(sum);
+            document.writeln(" has exceeded 20");
+        }
+        function problem4() {
+            var songs = [];
+            songs["Hey Jude"] = "The Beatles";
+            songs["Here Comes the Sun"] = "The Beatles";
+            songs["Yellow"] = "Coldplay";
+            songs["Sparks"] = "Coldplay";
+            songs["Mr. Jones"] = "Counting Crows";
+            songs["Round Here"] = "Counting Crows";
+            document.write("Problem 4: ");
+            for(song in songs) {
+                document.writeln(song);
+                document.writeln(" -- ");
+                document.write(songs[song]);
+                document.writeln(". ")
+            }
+        }
+        function problem5() {
+            var songs = [];
+            songs["Hey Jude"] = "The Beatles";
+            songs["Here Comes the Sun"] = "The Beatles";
+            songs["Yellow"] = "Coldplay";
+            songs["Sparks"] = "Coldplay";
+            songs["Mr. Jones"] = "Counting Crows";
+            songs["Round Here"] = "Counting Crows";
+            var answer = prompt("Problem 5: Enter a band name: ", "The Beatles");
+            document.writeln("Problem 5: Songs by inputted artist: ");
+            for(song in songs) {
+                if (songs[song] === answer) {
+                    document.write(song);
+                    document.writeln(". ");
+                }
+            }
+        }
+        function printer() {
+            problem1();
+            document.write("<br>");
+            problem2();
+            document.write("<br>");
+            problem3();
+            document.write("<br>");
+            problem4();
+            document.write("<br>");
+            problem5();
+        }
+    </script>
+</head>
+<body style="background-color: tan; color: aliceblue;">
+    <script>
+        printer();
+    </script>
+</body>
+</html>
