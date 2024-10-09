@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        h1 {
+            color: red;
+            text-align: center;
+            background-color: orange;
+        }
+        body {
+            background-color: white;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            background-color: red;
+        }
+        h3 {
+            color: red;
+            text-align: left;
+            padding-left: 80px;
+        }
+        table {
+            padding-left: 50px;
+        }
+
+    </style>
+
+    <script>
+        var dogPrice = 4.80;
+        var fryPrice = 3.95;
+        var drinkPrice = 1.99; 
+        function showMoney(numString) {
+            numString = Math.floor(numString * 100 + 0.5) / 100;
+            numString = numString.toString();
+            if (numString.indexOf('.') === -1) {
+                numString += '.00';
+            } else {
+                let decimals = numString.split('.')[1];
+                if (decimals.length === 1) {
+                    numString += '0';
+                }
+            }
+            return numString;
+        }
+        function calcTotal(numDogs, numFries, numSoda) {
+            dogAmt = numDogs * dogPrice;
+            document.write(numDogs);
+            document.write(" Hot Dogs -- $");
+            document.write(showMoney(dogAmt));
+            document.write("<br>");
+            fryAmt = numFries * fryPrice;
+            document.write(numFries);
+            document.write(" Fries -- $");
+            document.write(showMoney(fryAmt));
+            document.write("<br>");
+            sodaAmt = numSoda * drinkPrice;
+            document.write(numSoda);
+            document.write(" Drinks -- $");
+            document.write(showMoney(sodaAmt));
+            document.write("<br>");
+            sub = dogAmt + fryAmt + sodaAmt;
+            docString = showMoney(sub);
+            document.write("SUBTOTAL: $")
+            document.writeln(docString);
+            return sub;
+        }
+        function checkDiscount(subtotal) {
+            if (subtotal >= 25) {
+                document.writeln("You qualify for the discount!");
+                var d = subtotal * 0.10; 
+                var discount = Math.floor(d * 100 + 0.5) / 100;
+                document.writeln("<br>");
+                document.write("You saved $");
+                subString = showMoney(d);
+                document.write(subString);
+                return discount;
+            } else {
+                document.writeln("You did not qualify for the discount!");
+                return 0;
+            }
+        }
+        function addTax(subtotal) {
+            tax = subtotal * 0.0625;
+            return tax;
+        }
+        function promptOrder() {
+            var response = prompt("How many hot dogs do you want?", "0");
+            var numDogs = parseInt(response);
+            response = prompt("How many orders of fries do you want?", "0");
+            var numFries = parseInt(response);
+            response = prompt("How many drinks do you want?", "0");
+            var numSoda = parseInt(response);
+            var subtotal = calcTotal(numDogs, numFries, numSoda);
+            return subtotal;
+        }
+    </script>
+
+
+</head>
+<body>
+    <h1> Welcome to Joe's Hot Dog Stand! </h1>
+    <h2> Current special offer: 10% off on orders $25 or more! </h2>
+    <h3> Menu </h3>
+    <table border="1" cellpadding ="10" cellspacing = "0" ALIGN = "left">
+        <tr>
+            <td> Hot Dog </td>
+            <td> $4.80 </td>
+        </tr>
+        <tr>
+            <td> Fries </td>
+            <td> $3.95 </td>
+        </tr>
+        <tr>
+            <td> Drink </td>
+            <td> $1.99 </td>
+        </tr>
+    </table>
+    <img src = "pix.png" ALIGN = "right"> 
+    <br><br><br><br><br><br><br><br><br><br>
+    <h3> Your Order: </h3>
+    <script>
+        var response = prompt("How many hot dogs do you want?", "0");
+        var numDogs = parseInt(response);
+        response = prompt("How many orders of fries do you want?", "0");
+        var numFries = parseInt(response);
+        response = prompt("How many drinks do you want?", "0");
+        var numSoda = parseInt(response);
+        var subtotal = calcTotal(numDogs, numFries, numSoda);
+        document.write("<br>");
+        var discount = checkDiscount(subtotal);
+        if (discount != 0) {
+            subtotal = subtotal - discount;
+            document.write("<br> NEW SUBTOTAL: $");
+            document.write(showMoney(subtotal));
+        } 
+        var tax = addTax(subtotal);
+        document.write("<br>");
+        document.write("Tax added: $");
+        document.write(showMoney(tax));
+        finalTotal = subtotal + tax; 
+        document.write("<br>");
+        document.write("FINAL TOTAL: $");
+        document.write(showMoney(finalTotal));
+    </script>
+</body>
+</html>
