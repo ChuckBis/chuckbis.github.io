@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Tic Tac Toe alpha.3</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #f0f0f0;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+            }
+            .turnbar {
+                background-color: white;
+                justify-content: center;
+                align-items: center;
+                border: 2px, solid black;
+                width: 350px;
+                height: 50px;
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 35px;
+            }
+            .box {
+                background-color: white;
+                color: black;
+                border: 2px, solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 100px;
+                margin: 5px;
+            }
+            .box:hover {
+                background-color: gray;
+                cursor: pointer;
+            }
+            .winbar {
+                background-color: white;
+                justify-content: center;
+                align-items: center;
+                border: 2px, solid black;
+                width: 250px;
+                height: 40px;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Welcome To Tic Tac Toe! </h1>
+        <div id = 'turnbar' class = 'turnbar'></div>
+
+        <script>
+            const NUM_SQUARES = 9;
+            document.write("<div class='grid'>");
+            for (i=0; i< NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write( "<div class='box' id='" + id + "'></div>" );
+            }
+            document.write("</div>");
+        </script>
+
+        <div id = 'winbar' class = 'winbar'> Press Start to begin! </div>
+        <br>
+        <button id="startgame">Start/Reset Game</button>
+
+        <script>
+            let turn; 
+            let active = false;
+            function pickLetter() {
+                let xo = Math.random();
+                if (xo < 0.5) {
+                    return 'X';
+                } else {
+                    return 'O';
+                }
+            }
+            function switchLetter() {
+                if (turn == 'X') {
+                    turn = 'O';
+                } else {
+                    turn = 'X';
+                }
+                document.getElementById('turnbar').textContent = turn + "'s Turn";
+            }
+            function clicked(event) {
+                if (active == true) {
+                    const square = event.target;
+                    const id = square.id[2];
+                    alert('Square number: ' + id + ' was clicked.');
+                    if (square.textContent == '' && active == true) {
+                        square.textContent = turn;
+                        switchLetter();
+                    } 
+                    const squares = document.querySelectorAll('.box');
+                    const moves = [];
+                    let count = 0;
+                    squares.forEach(square => {
+                        count++;
+                        if (square.textContent == '') {
+                            moves.push('-');
+                        } else {
+                            moves.push(square.textContent);
+                        }  
+                    });
+
+                    const winConditions = [];
+                    winConditions.push(moves[0] + moves[1] + moves[2]);
+                    winConditions.push(moves[3] + moves[4] + moves[5]);
+                    winConditions.push(moves[6] + moves[7] + moves[8]);
+
+                    winConditions.push(moves[0] + moves[3] + moves[6]);
+                    winConditions.push(moves[1] + moves[4] + moves[7]);
+                    winConditions.push(moves[2] + moves[5] + moves[8]);
+
+                    winConditions.push(moves[0] + moves[4] + moves[8]);
+                    winConditions.push(moves[2] + moves[4] + moves[6]);
+                    let length = winConditions.length;
+                    let hyphenCount = 0;
+                    winConditions.forEach(group => {
+                        if(group == "OOO") {
+                            document.getElementById('winbar').textContent = "O WINS!";
+                            active = false; 
+                            return;
+                        } else if (group == "XXX") {
+                            document.getElementById('winbar').textContent = "X WINS!";
+                            active = false;
+                            return;
+                        } 
+                        if (group.includes("-")) {
+                            hyphenCount++;
+                        }
+                    });
+                    if (hyphenCount == 0) {
+                        document.getElementById('winbar').textContent = "We have a tie!";
+                    }
+                }
+            }
+
+            function startGame() {
+                const squares = document.querySelectorAll('.box');
+                squares.forEach(square => {
+                    square.textContent = '';
+                });
+                turn = pickLetter();
+                document.getElementById('turnbar').textContent = turn + "'s Turn";
+                document.getElementById('winbar').textContent = "";
+                active = true;
+            }
+
+            window.onload = function() {
+                const squares = document.querySelectorAll('.box');
+                squares.forEach(square => {
+                    square.addEventListener('click', clicked);
+                });
+                document.getElementById('startgame').addEventListener('click', startGame);
+            };
+        </script>
+    </body>
+</html>

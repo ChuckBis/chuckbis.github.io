@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Tic Tac Toe alpha.3</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #f0f0f0;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+            }
+            .turnbar {
+                background-color: white;
+                justify-content: center;
+                align-items: center;
+                border: 2px, solid black;
+                width: 350px;
+                height: 50px;
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 35px;
+            }
+            .box {
+                background-color: white;
+                color: black;
+                border: 2px, solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 100px;
+                margin: 5px;
+            }
+            .box:hover {
+                background-color: gray;
+                cursor: pointer;
+            }
+            .winbar {
+                background-color: white;
+                justify-content: center;
+                align-items: center;
+                border: 2px, solid black;
+                width: 250px;
+                height: 40px;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Welcome To Tic Tac Toe! </h1>
+        <div id = 'turnbar' class = 'turnbar'></div>
+
+        <script>
+            const NUM_SQUARES = 9;
+            document.write("<div class='grid'>");
+            for (i=0; i< NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write( "<div class='box' id='" + id + "'></div>" );
+            }
+            document.write("</div>");
+        </script>
+
+        <div id = 'winbar' class = 'winbar'> This is the win bar </div>
+        <br>
+        <button id="startgame">Start Game</button>
+
+        <script>
+            let turn;
+            function pickLetter() {
+                let xo = Math.random();
+                if (xo < 0.5) {
+                    return 'X';
+                } else {
+                    return 'O';
+                }
+            }
+            function switchLetter() {
+                if (turn == 'X') {
+                    turn = 'O';
+                } else {
+                    turn = 'X';
+                }
+                document.getElementById('turnbar').textContent = turn + "'s Turn";
+            }
+            function clicked(event) {
+                const square = event.target;
+                const id = square.id[2];
+                alert('Square number: ' + id + ' was clicked.');
+                if (square.textContent == '') {
+                    square.textContent = turn;
+                    switchLetter();
+                } 
+            }
+            function startGame() {
+                const squares = document.querySelectorAll('.box');
+                squares.forEach(square => {
+                    square.textContent = '';
+                });
+                turn = pickLetter();
+                document.getElementById('turnbar').textContent = turn + "'s Turn";
+            }
+            window.onload = function() {
+                const squares = document.querySelectorAll('.box');
+                squares.forEach(square => {
+                    square.addEventListener('click', clicked);
+                });
+                document.getElementById('startgame').addEventListener('click', startGame);
+                startGame();
+            };
+        </script>
+    </body>
+</html>
