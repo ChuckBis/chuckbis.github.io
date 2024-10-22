@@ -1,0 +1,119 @@
+<?xml version ="1.0" encoding = "UTF-8"?>
+<?xml-stylesheet type="text/css" href = "products.css" ?>
+<products>
+	<product>
+		<name> Vintage T-shirt </name>
+        <description>
+            Tie-die Grateful Dead T-shirt
+        </description>
+        <Price> $35 </Price>
+        <categories>
+            <category> clothing </category>
+            <category> vintage </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> New T-shirt </name>
+        <description>
+            Plain tee
+        </description>
+        <Price> $20 </Price>
+        <categories>
+            <category> clothing </category>
+            <category> new </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Trucker hat </name>
+        <description>
+            Mesh white trucker hat
+        </description>
+        <Price> $15 </Price>
+        <categories>
+            <category> headwear </category>
+            <category> clearance </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Sports sweatshirt </name>
+        <description>
+            Nike dri-fit sweatshirt
+        </description>
+        <Price> $60 </Price>
+        <categories>
+            <category> sports </category>
+            <category> new </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Flip-flops </name>
+        <description>
+            Old flip-flops
+        </description>
+        <Price> $5 </Price>
+        <categories>
+            <category> footwear </category>
+            <category> clearance </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Running shoes </name>
+        <description>
+            Adidas running shoes
+        </description>
+        <Price> $80 </Price>
+        <categories>
+            <category> footwear </category>
+            <category> new </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Cowboy Boots </name>
+        <description>
+            Vintage cowboy boots
+        </description>
+        <Price> $100 </Price>
+        <categories>
+            <category> footwear </category>
+            <category> vintage </category>
+        </categories> 
+	</product>
+    
+    <product>
+		<name> Cowboy Hat </name>
+        <description>
+            Vintage Cowboy Hat
+        </description>
+        <Price> $50 </Price>
+        <categories>
+            <category> headwear </category>
+            <category> vintage </category>
+        </categories> 
+	</product>
+
+    <product>
+		<name> Gum </name>
+        <description>
+            Gum sold at register
+        </description>
+        <Price> $2 </Price>
+        <categories>
+            <category> candy </category>
+        </categories> 
+	</product>
+
+</products>
+
+<!--
+Create an XML document to list products
+    Name
+    Description
+    Price
+    Category
+-->
