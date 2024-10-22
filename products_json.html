@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Products for JSON</title>
+	<style type="text/css">
+		body,html{font-size: 40px;}
+	</style>
+</head>
+
+<body>
+	<script language="javascript">
+	vTee = {
+		"name": "Vintage T-shirt",
+	    "description": "Tie-die Grateful Dead T-shirt",
+	    "price": 35,
+	    "categories": ["clothing","vintage"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+    nTee = {
+		"name": "New T-shirt",
+        "description": "Plain tee",
+        "price": 20,
+        "categories": ["clothing","new"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+    
+    tHat = {
+		"name": "Trucker Hat",
+        "description": "Mesh white trucker hat",
+        "price": 15,
+        "categories": ["headwear","clearance"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    sweatshirt = {
+		"name": "Sports Sweatshirt",
+        "description": "Nike dri-fit sweatshirt",
+        "price": 60,
+        "categories": ["sports","new"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    fFlops = {
+		"name": "Flip-flops",
+        "description": "Old flip-flops",
+        "price": 5,
+        "categories": ["footwear","clearance"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    rShoes = {
+		"name": "Running Shoes",
+        "description": "Adidas running shoes",
+        "price": 80,
+        "categories": ["footwear","new"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    cBoots = {
+		"name": "Cowboy Boots",
+        "description": "Vintage cowboy boots",
+        "price": 100,
+        "categories": ["footwear","vintage"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    cHat = {
+		"name": "Cowboy Hat",
+        "description": "Vintage Cowboy Hat",
+        "price": 50,
+        "categories": ["headwear","vintage"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+    gum = {
+        "name": "Gum",
+        "description": "Gum sold at register",
+        "price": 2,
+        "categories": ["candy"],
+
+		toJSON() {
+    		return "{'Product:': '" + this.name + " - " + this.description + " - $" + this.price + " - " +  this.categories + "'}";
+  		}
+    } 	// end product
+
+	document.write (vTee["name"] + "<br>");
+ 	product  = JSON.stringify(vTee);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (nTee["name"] + "<br>");
+ 	product  = JSON.stringify(nTee);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (tHat["name"] + "<br>");
+ 	product  = JSON.stringify(tHat);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (sweatshirt["name"] + "<br>");
+ 	product  = JSON.stringify(sweatshirt);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+    
+    document.write (fFlops["name"] + "<br>");
+ 	product  = JSON.stringify(fFlops);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (rShoes["name"] + "<br>");
+ 	product  = JSON.stringify(rShoes);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (cBoots["name"] + "<br>");
+ 	product  = JSON.stringify(cBoots);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (cHat["name"] + "<br>");
+ 	product  = JSON.stringify(cHat);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+    document.write (gum["name"] + "<br>");
+ 	product  = JSON.stringify(gum);			//uses toJSON
+	document.write (product +  "<br>")
+	console.log(product)
+
+	</script>
+</body>
+</html>
