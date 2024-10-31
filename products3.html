@@ -40,8 +40,8 @@
         <h1>Product List with Filter</h1>
 
         <div class="filter-container">
-            <select id="categorySelect"></select>
-            <button id="filterButton">Filter</button>
+            <select style="align-self: center;" id="categorySelect"></select>
+            <button style="align-self: center;" id="filterButton">Filter</button>
         </div>
 
         <div id="filtered-products"></div>
@@ -55,6 +55,9 @@
 
                     // Populate categories in the dropdown
                     const categories = new Set();
+
+                    categories.add("Select a category:");
+
                     products.forEach(product => {
                         product.categories.forEach(category => {
                             categories.add(category);
@@ -77,16 +80,18 @@
                     // Display filtered product names
                     if (filteredProducts.length > 0) {
                         filteredProducts.forEach(product => {
-                            $('#filtered-products').append(`
-                                <div class="filtered-product">
-                                    <h2>${product.name}</h2>
-                                </div>
-                            `);
-                        });
+                        $('#products').append(`
+                            <div class="product">
+                                <h2>${product.name}</h2>
+                                <p>${product.description}</p>
+                                <p>Price: $${product.price}</p>
+                                <p>Categories: ${product.categories.join(', ')}</p>
+                            </div>
+                        `);
+                    });
                     }
                 });
             });
         </script>
-
     </body>
 </html>
