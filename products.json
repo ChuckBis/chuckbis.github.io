@@ -1,0 +1,84 @@
+{
+	"products": [
+	  {
+		"name": "Vintage T-shirt",
+		"description": "Tie-die Grateful Dead T-shirt",
+		"price": 35,
+		"categories": [
+		  "clothing",
+		  "vintage"
+		]
+	  },
+	  {
+		"name": "New T-shirt",
+		"description": "Plain tee",
+		"price": 20,
+		"categories": [
+		  "clothing",
+		  "new"
+		]
+	  },
+	  {
+		"name": "Trucker Hat",
+		"description": "Mesh white trucker hat",
+		"price": 15,
+		"categories": [
+		  "headwear",
+		  "clearance"
+		]
+	  },
+	  {
+		"name": "Sports Sweatshirt",
+		"description": "Nike dri-fit sweatshirt",
+		"price": 60,
+		"categories": [
+		  "sports",
+		  "new"
+		]
+	  },
+	  {
+		"name": "Flip-flops",
+		"description": "Old flip-flops",
+		"price": 5,
+		"categories": [
+		  "footwear",
+		  "clearance"
+		]
+	  },
+	  {
+		"name": "Running Shoes",
+		"description": "Adidas running shoes",
+		"price": 80,
+		"categories": [
+		  "footwear",
+		  "new"
+		]
+	  },
+	  {
+		"name": "Cowboy Boots",
+		"description": "Vintage cowboy boots",
+		"price": 100,
+		"categories": [
+		  "footwear",
+		  "vintage"
+		]
+	  },
+	  {
+		"name": "Cowboy Hat",
+		"description": "Vintage Cowboy Hat",
+		"price": 50,
+		"categories": [
+		  "headwear",
+		  "vintage"
+		]
+	  },
+	  {
+		"name": "Gum",
+		"description": "Gum sold at register",
+		"price": 2,
+		"categories": [
+		  "candy"
+		]
+	  }
+	]
+}
