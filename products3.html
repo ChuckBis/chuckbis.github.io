@@ -14,21 +14,21 @@
             color: black;
             text-align: center;
         }
-        #products {
+        #filtered-products {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
-        .product {
+        .filtered-product {
             background: white;
             border: 1px solid black;
             border-radius: 5px;
             padding: 15px;
             width: 300px;
         }
-        .product h2 {
+        .filtered-product h2 {
             font-size: 25px;
             color: lightblue;
             margin: 0 0 10px 0;
@@ -80,15 +80,15 @@
                     // Display filtered product names
                     if (filteredProducts.length > 0) {
                         filteredProducts.forEach(product => {
-                        $('#products').append(`
-                            <div class="product">
-                                <h2>${product.name}</h2>
-                                <p>${product.description}</p>
-                                <p>Price: $${product.price}</p>
-                                <p>Categories: ${product.categories.join(', ')}</p>
-                            </div>
-                        `);
-                    });
+                            $('#filtered-products').append(`
+                                <div class="filtered-product">
+                                    <h2>${product.name}</h2>
+                                    <p>${product.description}</p>
+                                    <p>Price: $${product.price}</p>
+                                    <p>Categories: ${product.categories.join(', ')}</p>
+                                </div>
+                            `);
+                        });
                     }
                 });
             });
