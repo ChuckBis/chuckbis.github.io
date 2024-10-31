@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 40px;
+            background-color: lightgray;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+        }
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product {
+            background: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 15px;
+            width: 300px;
+        }
+        .product h2 {
+            font-size: 25px;
+            color: lightblue;
+            margin: 0 0 10px 0;
+        }
+    </style>
+</head>
+    <body>
+
+        <h1>Product List with Filter</h1>
+
+        <div class="filter-container">
+            <select id="categorySelect"></select>
+            <button id="filterButton">Filter</button>
+        </div>
+
+        <div id="filtered-products"></div>
+
+        <script>
+            let products = []; 
+
+            $(document).ready(function() {
+                $.get('products.json', function(data) {
+                    products = data.products;
+
+                    // Populate categories in the dropdown
+                    const categories = new Set();
+                    products.forEach(product => {
+                        product.categories.forEach(category => {
+                            categories.add(category);
+                        });
+                    });
+
+                    categories.forEach(category => {
+                        $('#categorySelect').append(new Option(category, category));
+                    });
+                })
+
+                // Event handler for the filter button
+                $('#filterButton').on('click', function() {
+                    const selectedCategory = $('#categorySelect').val();
+                    const filteredProducts = products.filter(product => product.categories.includes(selectedCategory));
+
+                    // Clear previous results
+                    $('#filtered-products').empty();
+
+                    // Display filtered product names
+                    if (filteredProducts.length > 0) {
+                        filteredProducts.forEach(product => {
+                            $('#filtered-products').append(`
+                                <div class="filtered-product">
+                                    <h2>${product.name}</h2>
+                                </div>
+                            `);
+                        });
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
