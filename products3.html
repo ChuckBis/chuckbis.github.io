@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Product List</title>
+    <title>Filtered Product List</title>
     
     <style>
         body {
@@ -15,19 +15,19 @@
             color: black;
             text-align: center;
         }
-        #products {
+        #filtered-products {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .product {
+        .filtered-product {
             background: white;
             text-align: center;
             border: 1px solid black;
             width: 300px;
         }
-        .product h2 {
+        .filtered-product h2 {
             font-size: 25px;
             text-align: center;
             color: lightblue;
@@ -36,24 +36,55 @@
 </head>
     <body>
 
-        <h1>Product List</h1>
-        <div id="products"></div>
+        <h1>Product List with Filter</h1>
+
+        <div class="filter-container">
+            <select style="align-self: center;" id="categorySelect"></select>
+            <button style="align-self: center;" id="filterButton">Filter</button>
+        </div>
+
+        <div id="filtered-products"></div>
 
         <script>
+            let products = []; 
+
             $(document).ready(function() {
                 $.get('products.json', function(data) {
-                    const products = data.products;
+                    products = data.products;
+
+                    const categories = new Set();
+
+                    categories.add("Select a category:");
 
                     products.forEach(product => {
-                        $('#products').append(`
-                            <div class="product">
-                                <h2>${product.name}</h2>
-                                <p>${product.description}</p>
-                                <p>Price: $${product.price}</p>
-                                <p>Categories: ${product.categories.join(', ')}</p>
-                            </div>
-                        `);
+                        product.categories.forEach(category => {
+                            categories.add(category);
+                        });
                     });
+
+                    categories.forEach(category => {
+                        $('#categorySelect').append(new Option(category, category));
+                    });
+                })
+
+                $('#filterButton').on('click', function() {
+                    const selectedCategory = $('#categorySelect').val();
+                    const filteredProducts = products.filter(product => product.categories.includes(selectedCategory));
+
+                    $('#filtered-products').empty();
+
+                    if (filteredProducts.length > 0) {
+                        filteredProducts.forEach(product => {
+                            $('#filtered-products').append(`
+                                <div class="filtered-product">
+                                    <h2>${product.name}</h2>
+                                    <p>${product.description}</p>
+                                    <p>Price: $${product.price}</p>
+                                    <p>Categories: ${product.categories.join(', ')}</p>
+                                </div>
+                            `);
+                        });
+                    }
                 });
             });
         </script>
