@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>Charizard's Moves</title>
-    <style>
-        h1 {
-            color: red;
-            text-decoration: underline;
-        }
-        .moves-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .moves-list li {
-            padding: 5px 0;
-        }
-    </style>
+        <title>Charizard's Moves</title>
+        <style>
+            h1 {
+                color: red;
+                text-decoration: underline;
+            }
+            .moves-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .moves-table td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+        </style>
     </head>
     
     <body>
-
         <h1>Charizard's Moves</h1>
-        <ul class="moves-list" id="moves"></ul>
+        <table class="moves-table" id="movesTable"></table>
+
         <script>
-        // Fetch Charizard's data from the pokemon API
-        fetch("https://pokeapi.co/api/v2/pokemon/charizard")
-            .then(response => response.json())
-            .then(data => {
-            const movesList = document.getElementById("moves");
-            const moves = data.moves;
+            // Fetch Charizard's data from the Pokemon API
+            fetch("https://pokeapi.co/api/v2/pokemon/charizard")
+                .then(response => response.json())
+                .then(data => {
+                    const movesTable = document.getElementById("movesTable");
+                    const moves = data.moves;
+                    const movesPerRow = 8;
 
-            // Display each move in a list
-            moves.forEach(move => {
-                const listItem = document.createElement("li");
-                listItem.textContent = move.move.name.charAt(0).toUpperCase() + move.move.name.slice(1);
-                movesList.appendChild(listItem);
-            });
-            })
-            .catch(error => console.error("Error fetching data:", error));
+                    // Create rows and add moves in a grid format
+                    for (let i = 0; i < moves.length; i += movesPerRow) {
+                        const row = document.createElement("tr");
+                        for (let j = i; j < i + movesPerRow && j < moves.length; j++) {
+                            const cell = document.createElement("td");
+                            cell.textContent = moves[j].move.name.charAt(0).toUpperCase() + moves[j].move.name.slice(1);
+                            row.appendChild(cell);
+                        }
+                        movesTable.appendChild(row);
+                    }
+                })
+                .catch(error => console.error("Error fetching data:", error));
         </script>
-
     </body>
 </html>
