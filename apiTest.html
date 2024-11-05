@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <title>Charizard's Moves</title>
     <style>
-        body {
-        font-family: Arial, sans-serif;
-        }
         h1 {
             color: red;
             text-decoration: underline;
         }
         .moves-list {
-        list-style-type: none;
-        padding: 0;
+            list-style-type: none;
+            padding: 0;
         }
         .moves-list li {
-        padding: 5px 0;
+            padding: 5px 0;
         }
     </style>
     </head>
-
+    
     <body>
 
         <h1>Charizard's Moves</h1>
@@ -36,7 +33,7 @@
             // Display each move in a list
             moves.forEach(move => {
                 const listItem = document.createElement("li");
-                listItem.textContent = move.name.charAt(0).toUpperCase() + move.name.slice(1);
+                listItem.textContent = move.move.name.charAt(0).toUpperCase() + move.move.name.slice(1);
                 movesList.appendChild(listItem);
             });
             })
@@ -45,4 +42,3 @@
 
     </body>
 </html>
-
